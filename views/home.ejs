@@ -6,14 +6,18 @@
     <title>Home</title>
   </head>
   <body>
-    <h1><%= msg %></h1>
-    <% let showMessage = true; %> <% if(showMessage===true) { %>
-    <p>This is a dynamic message!</p>
-    <% } else { %>
-    <p>Something else!</p>
-    <% } %>
+    <%- include('./partials/html-head') %> <%- include('./partials/nav') %>
+    <h1>Welcome to the Inventory page!</h1>
+    <p><%= msg %>, <%= player.name %>!</p>
+    <ul>
+      <!-- Add the index parameter -->
+      <% inventory.forEach((item, index) => { %>
+      <!-- Wrap each li in an <a> tag -->
+      <a href="/<%= index %>">
+        <li><%= item.name %>: <%= item.qty %></li>
+      </a>
+      <% }); %>
+    </ul>
     <!-- output tags -->
-    <p>2 plus 2 is <%= 2 + 2 %></p>
-    <p>Welcome, <%=user.name%>!. I see you are a <%=user.status%></p>
   </body>
 </html>
