@@ -7,10 +7,12 @@
   </head>
   <body>
     <h1>Rendering an EJS page</h1>
-    <% if(true==true) { %>
-    <p>This shows up!</p>
+    <% let showMessage = true; %> <% if(showMessage===true) { %>
+    <p>This is a dynamic message!</p>
     <% } else { %>
     <p>Something else!</p>
     <% } %>
+    <!-- output tags -->
+    <p>2 plus 2 is <%= 2 + 2 %></p>
   </body>
 </html>
